@@ -170,8 +170,8 @@ def get_patent_list():
     """Fetch a list of links to patents awarded in the past week.
 
         CLI arguments:
-            --city: inventor city, defaults to Austin
-            --state: inventor state (postal abbr), defaults to TX
+            --city: inventor city, defaults to New York
+            --state: inventor state (postal abbr), defaults to NY
             --days: number of days back to search, defaults to 7
 
         Creates:
@@ -183,13 +183,13 @@ def get_patent_list():
                     'given city.'
     )
 
-    parser.add_argument('--city', metavar='', type=str, default='Austin',
+    parser.add_argument('--city', metavar='', type=str, default='New York',
                        help='the city for which you want data' \
-                            ' (defaults to "Austin")')
+                            ' (defaults to "New York")')
 
-    parser.add_argument('--state', metavar='', type=str, default='TX',
+    parser.add_argument('--state', metavar='', type=str, default='NY',
                         help='2-letter abbreviation of state for which you' \
-                        'want data (defaults to "TX")')
+                        'want data (defaults to "NY")')
 
     parser.add_argument('--days', metavar='', type=int, default=7,
                         help='how many days back to search (defaults to 7)')
@@ -205,7 +205,11 @@ def get_patent_list():
     results_url = build_list_url(page_num=1, start_date=days_ago,
                                  city=city, state=state)
 
+    print("U.S. Patent Office API: " + results_url)
+
     r = requests.get(results_url)
+
+    print(r.text)
 
     if r.status_code == 200:
         print('search connected')
