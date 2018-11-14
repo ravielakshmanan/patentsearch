@@ -2,12 +2,6 @@
 
 A Python CLI utility to fetch data on patents recently awarded to inventors in `{{ your city }}`.
 
-### Why tho
-What else am I going to hook up to this cron job and this Slack channel?
-
-### Why not use the API, dingus
-It looks like the Patent and Trademark Office's new API is only [updated once every two months](http://www.patentsview.org/api/faqs.html). The [ancient, creaking web service](http://patft.uspto.gov/netahtml/PTO/search-adv.htm) is updated every Tuesday. And Slack is _thirsty_.
-
 ### Prereqs
 * `python`
 * `virtualenv`/`virtualenvwrapper`
@@ -26,12 +20,10 @@ $ python patent_scraper.py [args]
 * `--days`: how many days back to search, defaults to 7
 
 ### Example usage
-`python patent_scraper.py --city pavillion --state wy`
-
-(lol)
+`python patent_scraper.py --city shelton --state wa`
 
 If the city has more than one word, enclose it in quotes:
-`python patent_scraper.py --city "agua dulce" --state tx`
+`python patent_scraper.py --city "new york" --state ny`
 
 ### Output
 If you get any hits, you'll see two new files in your working directory:
